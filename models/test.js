@@ -1,10 +1,11 @@
 'use strict';
 
-const db = require('../models/test').test();
+const db = require('../models/test');
+const data = db.test();
 
 exports.test = ctx => {
   try {
-    return db;
+    return data;
   } catch (e) {
     console.log('error in model: ', e);
   }
