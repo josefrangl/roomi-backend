@@ -1,6 +1,6 @@
 'use strict';
 
-const db = require('../models/test').getData();
+const db = require('../db').getData();
 
 exports.test = ctx => {
   try {
