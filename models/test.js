@@ -2,6 +2,7 @@
 
 const db = require('../db').getData();
 
+
 exports.test = ctx => {
   try {
     return db;
