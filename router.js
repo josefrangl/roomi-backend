@@ -8,6 +8,7 @@ const test = require('./controllers/test');
 let _404 = 'The requested URL was not found on this server.';
 
 router.get('/test', test.test);
+router.post('/add', test.add);
 router.get('/*', () => {
   this.body = _404;
   this.status = 404;
