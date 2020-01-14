@@ -26,3 +26,20 @@ exports.createUser = async ctx => {
     ctx.status = 400;
   }
 };
+
+exports.loginUser = async ctx => {
+  const loginData = ctx.request.body;
+  try {
+    const userData = await db.User.findAll({
+      where: {
+        email: loginData.email
+      }
+    });
+    console.log(loginData);
+    console.log(userData);
+
+  } catch (e) {
+    console.log('error login in user: ', e);
+  }
+
+}
