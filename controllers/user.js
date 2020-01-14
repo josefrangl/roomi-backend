@@ -35,18 +35,27 @@ exports.loginUser = async ctx => {
         email: loginData.email
       }
     });
-    console.log(loginData);
-    console.log(userData);
-    if (userData.length) {
+
+    if (userData.length || !userData[0].dataValues.shadow) {
+      
       const correctPassword = await bcrypt
         .compare(loginData.password, userData[0].dataValues.password);
       if (correctPassword) {
-        ctx.body = loginData.email;
+        ctx.body = {
+          id: userData[0].dataValues.id,
+          email: userData[0].dataValues.email,
+          firstName: userData[0].dataValues.firstName,
+          lastName: userData[0].dataValues.lastName,
+          phone_number: userData[0].dataValues.phone_number,
+          profile_pic: userData[0].dataValues.profile_pic
+        };
         ctx.status = 202;
+
       } else {
         ctx.body = 'Incorrect password';
         ctx.status = 401;
       }
+
     } else {
       ctx.body = 'User / Email not found';
       ctx.status = 404;
