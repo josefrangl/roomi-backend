@@ -58,7 +58,7 @@ exports.loginUser = async ctx => {
 
     } else {
       ctx.body = 'User / Email not found';
-      ctx.status = 404;
+      ctx.status = 403;
     }
 
   } catch (e) {
