@@ -6,6 +6,7 @@
 const bcrypt = require('bcrypt');
 
 const db = require('./models/index');
+
 const User = require('../models/user');
 
 exports.createUser = async ctx => {
