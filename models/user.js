@@ -80,7 +80,7 @@ User.init({
     allowNull: true,
   }
 }, {
-  sequelize,
+  db.sequelize,
   modelName: 'user'
 });
 
