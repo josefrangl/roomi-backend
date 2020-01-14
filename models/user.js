@@ -51,6 +51,7 @@ sequelize.sync();
 
 exports.createUser = async ctx => {
   try {
+    console.log(ctx);
     const data = ctx.request.body;
     data.hashedPassword = await bcrypt.hash(data.password, 10);
     const userCreated = await User.create({
@@ -66,7 +67,7 @@ exports.createUser = async ctx => {
     console.log('new user: ', userCreated);
     return userCreated;
   } catch (e) {
-    console.log('error creating user: ', e);
+    console.log('error creating user model: ', e);
   } 
 }
 
