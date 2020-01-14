@@ -38,63 +38,9 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
+sequelize.sync();
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
-
-
-// BEGIN MODEL DEFINITIONS
-
-// // USER MODEL
-// const Model = Sequelize.Model;
-// class User extends Model {}
-// User.init({
-//   email: {
-//     type: Sequelize.STRING,
-//     allowNull: true
-//   },
-//   password: {
-//     type: Sequelize.STRING,
-//     allowNull: true
-//   },
-//   country: {
-//     type: Sequelize.STRING,
-//     allowNull: true
-//   },
-//   city: {
-//     type: Sequelize.STRING,
-//     allowNull: true
-//   },
-//   phone_number: {
-//     type: Sequelize.STRING,
-//     allowNull: false
-//   },
-//   fb_id: {
-//     type: Sequelize.STRING,
-//     allowNull: true
-//   },
-//   shadow_user: {
-//     type: Sequelize.BOOLEAN,
-//     allowNull: false,
-//     defaultValue: false
-//   },
-//   profile_pic: {
-//     type: Sequelize.STRING,
-//     allowNull: true,
-//   }
-// }, {
-//   sequelize,
-//   modelName: 'user'
-// });
-
-
-
-// sequelize.sync();
-
-/*
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
-
-module.exports = db;*/
-
