@@ -5,6 +5,7 @@ const model = require('../models/user');
 
 exports.createUser = async ctx => {
   try {
+    console.log('controler', ctx);
     ctx.body = await model.createUser();
     ctx.status = 201;
   } catch (e) {
