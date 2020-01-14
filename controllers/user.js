@@ -36,7 +36,7 @@ exports.loginUser = async ctx => {
       }
     });
 
-    if (userData.length || !userData[0].dataValues.shadow) {
+    if (userData.length && !userData[0].dataValues.shadow) {
       
       const correctPassword = await bcrypt
         .compare(loginData.password, userData[0].dataValues.password);
@@ -58,7 +58,7 @@ exports.loginUser = async ctx => {
 
     } else {
       ctx.body = 'User / Email not found';
-      ctx.status = 403;
+      ctx.status = 401;
     }
 
   } catch (e) {
