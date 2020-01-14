@@ -2,6 +2,7 @@
 
 const bcrypt = require('bcrypt');
 
+const Sequelize = require('sequelize');
 const sequelize = require('../actual_db');
 
 const Model = Sequelize.Model;
