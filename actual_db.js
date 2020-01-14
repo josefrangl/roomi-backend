@@ -16,6 +16,8 @@ sequelize.authenticate()
     console.error('Unable to connect to the database:', err);
   });
 
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
 
-module.exports = sequelize;
+module.exports = db;
 
