@@ -64,6 +64,7 @@ sequelize.authenticate()
 
 // sequelize.sync();
 
+const db = {};
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
