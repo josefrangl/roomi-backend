@@ -66,11 +66,11 @@ sequelize.sync();
 
   })
   .catch((e) => console.log('error in syncing user: ', e));
-
+*/
 exports.getData = function () {
    return tempData;
 }
-*/
+
 const tempData = [
 {
 _id: 1,
