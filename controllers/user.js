@@ -37,9 +37,9 @@ exports.loginUser = async ctx => {
     });
     console.log(loginData);
     console.log(userData);
-    if (userData) {
+    if (userData.length) {
       const correctPassword = await bcrypt
-        .compare(loginData.password, userData[0].User.dataValues.password);
+        .compare(loginData.password, userData[0].dataValues.password);
       if (correctPassword) {
         ctx.body = loginData.email;
         ctx.status = 202;
