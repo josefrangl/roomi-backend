@@ -1,7 +1,7 @@
 'use strict';
 
 // import model
-const model = require('../models/test');
+const model = require('../test');
 
 exports.test = async ctx => {
   try {
