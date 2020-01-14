@@ -37,6 +37,20 @@ exports.loginUser = async ctx => {
     });
     console.log(loginData);
     console.log(userData);
+    if (userData) {
+      const correctPassword = await bcrypt
+        .compare(loginData.password, userData[0].User.dataValues.password);
+      if (correctPassword) {
+        ctx.body = loginData.email;
+        ctx.status = 202;
+      } else {
+        ctx.body = 'Incorrect password';
+        ctx.status = 401;
+      }
+    } else {
+      ctx.body = 'User / Email not found';
+      ctx.status = 404;
+    }
 
   } catch (e) {
     console.log('error login in user: ', e);
