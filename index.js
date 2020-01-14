@@ -6,7 +6,7 @@ const bodyParser = require('koa-bodyparser');
 
 const router = require('./router');
 
-const db = require('./models/index');
+const db = require('./models/index.js');
 
 app.use(bodyParser());
 app.use(router.routes());
