@@ -19,7 +19,7 @@ const s3 = new AWS.S3();
 */
 const db = require('../models/index');
 
-AWS.config
+// AWS.config
 
 exports.createUser = async ctx => {
   const user = ctx.request.body;
