@@ -20,7 +20,7 @@ _id: 1,
         roommates: 3,
         date_from: 'February 18',
         date_until: '',
-        img_url: 'https://roomi-images.s3.eu-west-3.amazonaws.com/bedroom_austerhouse_hornsey_pebblematt_onyxmatt.jpg',
+        img_url: 'https://roomi-images.s3.eu-west-3.amazonaws.com/blue_bed.jpeg',
         description: 'Double room with capacity for two persons in a comfortable and remodeled flat that has a big bathroom with shower and amerincan kitchen. Just 10 min. walking from the awesome Sagrada Familia and 2.5 km from the beach.'
 },
 {
