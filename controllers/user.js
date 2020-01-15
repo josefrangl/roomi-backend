@@ -5,7 +5,21 @@
 
 const bcrypt = require('bcrypt');
 
+/*
+const AWS = require('aws-sdk');
+const uuid = require('uuid');
+
+AWS.config.update({
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  region: 'eu-west-3'
+})
+
+const s3 = new AWS.S3();
+*/
 const db = require('../models/index');
+
+AWS.config
 
 exports.createUser = async ctx => {
   const user = ctx.request.body;
@@ -18,6 +32,7 @@ exports.createUser = async ctx => {
       firstName: user.firstName,
       lastName: user.lastName,
       phone_number: user.phone_number,
+      profile_pic: 'https://roomi-images.s3.eu-west-3.amazonaws.com/jf_profile.png',
       shadow_user: false
     });
     ctx.status = 201;
@@ -58,11 +73,44 @@ exports.loginUser = async ctx => {
 
     } else {
       ctx.body = 'User / Email not found';
-      ctx.status = 401;
+      ctx.status = 404;
     }
 
   } catch (e) {
     console.log('error login in user: ', e);
   }
+};
 
-}
+
+
+
+exports.addUserImage = async ctx => {
+/*  const userId = ctx.params.id;
+  image = ctx.request.body;
+
+  s3.putObject({
+    Bucket: 'roomi-images',
+    Body: 
+    Key: `profile_pic_${userId}`
+  }).promise()
+    .then(res => {
+      console.log('image uploaded', res);
+      const profile_url = s3.getSignedUrl('getObject', { 
+        Bucket: 'roomi-images',
+        Key: `profile_pic_${userId}`
+      });
+      ctx.body = profile_url;
+      ctx.status = 201;
+    })
+    .catch(err => {
+      console.log('failed image upload: ', err);
+    });
+
+
+*/
+};
+
+
+
+
+

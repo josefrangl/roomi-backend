@@ -42,6 +42,14 @@ module.exports = (sequelize, DataTypes) => sequelize.define('User', {
   profile_pic: {
     type: DataTypes.STRING,
     allowNull: true,
+  },
+  own_listings: {
+    type: DataTypes.ARRAY(DataTypes.INTEGER),
+    allowNull: true
+  },
+  favorite_listings: {
+    type: DataTypes.ARRAY(DataTypes.INTEGER),
+    allowNull: true
   }
 });
 

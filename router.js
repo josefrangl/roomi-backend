@@ -12,6 +12,7 @@ router.get('/test', test.test);
 router.post('/add', test.add);
 router.post('/add_user', user.createUser);
 router.post('/login', user.loginUser);
+// router.post('/image_user/:id', user.addUserImage);
 router.get('/*', () => {
   this.body = _404;
   this.status = 404;
