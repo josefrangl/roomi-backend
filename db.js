@@ -20,7 +20,7 @@ _id: 1,
         roommates: 3,
         date_from: 'February 18',
         date_until: '',
-        img_id: 'https://roomi-images.s3.eu-west-3.amazonaws.com/blue_bed.jpeg',
+        img_id: 'https://roomi-images.s3.eu-west-3.amazonaws.com/interior-bedroom-american-classic-3d-model-dwg-skp.jpg',
         description: 'Double room with capacity for two persons in a comfortable and remodeled flat that has a big bathroom with shower and amerincan kitchen. Just 10 min. walking from the awesome Sagrada Familia and 2.5 km from the beach.'
 },
 {
