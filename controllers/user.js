@@ -1,27 +1,12 @@
 'use strict';
 
-// import model
-
-
 const bcrypt = require('bcrypt');
 
-/*
-const AWS = require('aws-sdk');
-const uuid = require('uuid');
-
-AWS.config.update({
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  region: 'eu-west-3'
-})
-
-const s3 = new AWS.S3();
-*/
 const db = require('../models/index');
 
-// AWS.config
 
 exports.createUser = async ctx => {
+  // check user doesnt exist already
   const user = ctx.request.body;
   console.log('request post create user:', user);
   try {
@@ -85,29 +70,9 @@ exports.loginUser = async ctx => {
 
 
 exports.addUserImage = async ctx => {
-/*  const userId = ctx.params.id;
-  image = ctx.request.body;
-
-  s3.putObject({
-    Bucket: 'roomi-images',
-    Body: 
-    Key: `profile_pic_${userId}`
-  }).promise()
-    .then(res => {
-      console.log('image uploaded', res);
-      const profile_url = s3.getSignedUrl('getObject', { 
-        Bucket: 'roomi-images',
-        Key: `profile_pic_${userId}`
-      });
-      ctx.body = profile_url;
-      ctx.status = 201;
-    })
-    .catch(err => {
-      console.log('failed image upload: ', err);
-    });
-
-
-*/
+  const profileImageUrl = ctx.files[0].location;
+  ctx.body = profileImageUrl;
+  ctx.status = 201;
 };
 
 

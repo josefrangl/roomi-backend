@@ -1,5 +1,7 @@
 'use strict';
 
+// MOCK DATABASE
+
 // import model
 const model = require('../test');
 
