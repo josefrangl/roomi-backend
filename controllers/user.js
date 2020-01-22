@@ -10,7 +10,7 @@ exports.createUser = async ctx => {
   const user = ctx.request.body;
   console.log('request post create user:', user);
   try {
-    if (!user.imageUrl) user.imageUrl = 'https://roomi-images.s3.eu-west-3.amazonaws.com/jf_profile.png';
+    if (!user.profile_pic) user.imageUrl = 'https://roomi-images.s3.eu-west-3.amazonaws.com/jf_profile.png';
     user.hashedPassword = await bcrypt.hash(user.password, 10);
 
     ctx.body = await db.User.create({
@@ -19,7 +19,7 @@ exports.createUser = async ctx => {
       firstName: user.firstName,
       lastName: user.lastName,
       phone_number: user.phone_number,
-      profile_pic: user.imageUrl,
+      profile_pic: user.profile_pic,
       shadow_user: false
     });
     ctx.status = 201;
