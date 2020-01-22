@@ -3,7 +3,6 @@
 const bcrypt = require('bcrypt');
 const db = require('../models/index');
 
-
 exports.createUser = async ctx => {
   
   const defaultUserProfilePic = 'https://roomi-images.s3.eu-west-3.amazonaws.com/profile_pics/default_user.png';
@@ -67,6 +66,25 @@ exports.loginUser = async ctx => {
 
   } catch (e) {
     console.log('error login in user: ', e);
+  }
+};
+
+exports.checkEmail = async ctx => {
+  const email = ctx.request.body.email;
+  try {
+    const user = await db.User.findAll({
+      where: { email: email }
+    });
+    try {
+      const exists = user[0].dataValues;
+      ctx.body = 'Email already exists!';
+      ctx.status = 400;
+    } catch (error) {
+      ctx.status = 200;
+    }
+  } catch (e) {
+    console.log('Error in checkingEmail database: ', e);
+    ctx.status = 400;
   }
 };
 

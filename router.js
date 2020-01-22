@@ -14,6 +14,7 @@ router.get('/test', test.test);
 router.post('/add', test.add);
 router.post('/add_user', user.createUser);
 router.post('/login', user.loginUser);
+router.get('/check_email', user.checkEmail);
 router.post('/image/user_profile', multerProfilePicUpload.any(), user.addUserImage);
 
 router.get('/*', () => {
