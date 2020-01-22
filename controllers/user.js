@@ -70,6 +70,7 @@ exports.loginUser = async ctx => {
 };
 
 exports.checkEmail = async ctx => {
+  console.log(ctx.request.body);
   const email = ctx.request.body.email;
   try {
     const user = await db.User.findAll({
@@ -78,7 +79,7 @@ exports.checkEmail = async ctx => {
     try {
       const exists = user[0].dataValues;
       ctx.body = 'Email already exists!';
-      ctx.status = 400;
+      ctx.status = 403;
     } catch (error) {
       ctx.status = 200;
     }
