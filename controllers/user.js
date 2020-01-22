@@ -1,16 +1,16 @@
 'use strict';
 
 const bcrypt = require('bcrypt');
-
 const db = require('../models/index');
 
 
 exports.createUser = async ctx => {
-  // check user doesnt exist already
+  
+  const defaultUserProfilePic = 'https://roomi-images.s3.eu-west-3.amazonaws.com/profile_pics/default_user.png';
   const user = ctx.request.body;
-  console.log('request post create user:', user);
+  
   try {
-    if (!user.profile_pic) user.imageUrl = 'https://roomi-images.s3.eu-west-3.amazonaws.com/jf_profile.png';
+    if (!user.profile_pic) user.imageUrl = defaultUserProfilePic;
     user.hashedPassword = await bcrypt.hash(user.password, 10);
 
     ctx.body = await db.User.create({
@@ -30,7 +30,9 @@ exports.createUser = async ctx => {
 };
 
 exports.loginUser = async ctx => {
+  
   const loginData = ctx.request.body;
+  
   try {
     const userData = await db.User.findAll({
       where: {
@@ -67,9 +69,6 @@ exports.loginUser = async ctx => {
     console.log('error login in user: ', e);
   }
 };
-
-
-
 
 exports.addUserImage = async ctx => {
   const profileImageUrl = ctx.files[0].location;
